@@ -12,6 +12,11 @@ To set up and run the project, follow these steps:
 
    ```
    make start
+   make shell
+   # Inside the shell
+   composer install
+   npm install
+   npm run build
    ```
 
    This command will set up the necessary dependencies and start the development server.
