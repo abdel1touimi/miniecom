@@ -1,0 +1,17 @@
+services:
+  kata-web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./website:/var/www/html
+      - ./devops/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - kata-app
+
+  kata-app:
+    build:
+      context: .
+      dockerfile: ./devops/php/Dockerfile
+    volumes:
+      - ./website:/var/www/html
